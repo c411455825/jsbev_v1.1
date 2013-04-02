@@ -206,7 +206,7 @@ function clears() {
     a.css("display", "none");
 }
 function generate_custom() {
-    $("#pic").css({"background":"url('./images/init/selectedpic.png') repeat-x", "padding-bottom":"15px"});
+    $("#pic").css({"background":"url('./img/selectedpic.png') repeat-x", "padding-bottom":"15px"});
     var strXMLHeader = "<config>";
     var strLon = document.getElementById("lon").value.toString();
     var strLat = document.getElementById("lat").value.toString();
@@ -246,12 +246,12 @@ function generate_custom() {
     var strBase;
     var name = null;
     if (base == "base1") {
-        name = "base";
+        name = "t1";
     }
     else{
         name = base;
     }
-    strBase = "<template name=\""+base+"\" src=\"./base/" + name + ".html\" />";
+    strBase = "<template name=\""+base+"\" src=\"./templete/" + name + ".html\" />";
     var strservertype = document.getElementById("servertype").value;
     var strServerXML = "<server_use>Tomcat</server_use>";
     if (strservertype == "Tomcat") {
@@ -267,7 +267,7 @@ function generate_custom() {
     var panelManager = "<panelmanager id=\"panelmanager\">"
     for (var i = 0, len = tools.length; i < len; i++) {
         controlsValue = search(document.getElementById(tools[i] + "t").innerHTML);
-        panelManager = panelManager + "<panel id=\"" + controlsValue + "\" path=\"./models/" + controlsValue + "/\" />";
+        panelManager = panelManager + "<panel id=\"" + controlsValue + "\" path=\"./modules/" + controlsValue + "/\" />";
     }
     panelManager = panelManager + "</panelmanager>";
     var strLayout = "<layout><page_name>" + strPageName + "</page_name><title>" + strTitle + "</title>" + strBase + strServerXML + panelManager + "</layout>";
@@ -359,7 +359,7 @@ function generate_xml_1(xml) {
     $(xml).find("panelmanager").children().each(function (i) {
         //获取功能
         var strConfig = $(this).attr('id');
-        var strUrl1 = "./models/demo1/" + strConfig + ".txt";
+        var strUrl1 = "./modules/templete1/" + strConfig + ".txt";
         $.ajax({
             async:false,
             url:strUrl1,
@@ -412,10 +412,10 @@ function generate_xml_1(xml) {
         else if (str_server_use === "php") {
             str_server = "php";
         }
-        $.post("./index." + str_server,
+        $.post("./page." + str_server,
             { text:unescape(data), page_name:str_page_name + ".html" },
             function (value) {
-                window.location = "./" + str_page_name + ".html";
+                window.location = "../demo/" + str_page_name + ".html";
             });
     });
 }
@@ -495,7 +495,7 @@ function generate_xml_2(xml) {
 
     $.ajax({
         async:false,
-        url:"./models/demo2/accordion.txt",
+        url:"./modules/templete2/accordion.txt",
         success:function (data) {
             objWidgets["accordion"] = data;
         }});
@@ -509,15 +509,15 @@ function generate_xml_2(xml) {
             urls = [
                 {
                     "name":"measureIcon",
-                    "url":"./models/demo2/measureIcon.txt"
+                    "url":"./modules/templete2/measureIcon.txt"
                 },
                 {
                     "name":"getMeasure",
-                    "url":"./models/demo2/getMeasure.txt"
+                    "url":"./modules/templete2/getMeasure.txt"
                 },
                 {
                     "name":"getTooltip",
-                    "url":"./models/demo2/getTooltip.txt"
+                    "url":"./modules/templete2/getTooltip.txt"
                 }
             ]
         }
@@ -525,11 +525,11 @@ function generate_xml_2(xml) {
             urls = [
                 {
                     "name":"geoLocateIcon",
-                    "url":"./models/demo2/geoLocateIcon.txt"
+                    "url":"./modules/templete2/geoLocateIcon.txt"
                 },
                 {
                     "name":"getGeolocate",
-                    "url":"./models/demo2/getGeolocate.txt"
+                    "url":"./modules/templete2/getGeolocate.txt"
                 }
             ]
         }
@@ -608,10 +608,10 @@ function generate_xml_2(xml) {
         else if (str_server_use === "php") {
             str_server = "php";
         }
-        $.post("./index." + str_server,
+        $.post("./page." + str_server,
             { text:unescape(data), page_name:str_page_name + ".html" },
             function (value) {
-                window.location = "./" + str_page_name + ".html";
+                window.location = "../demo/" + str_page_name + ".html";
             });
     });
 }
@@ -659,22 +659,22 @@ function getLayersStr(xml,strBaseLayers,nCloudNumber,strIServerLayer,strInsertsc
             strBaseLayers[i] = " layer" + i + " = new SuperMap.Layer.TiledDynamicRESTLayer(' " + strName + "','" + strUrl + "', { transparent: true, cacheEnabled: true }, { maxResolution: 'auto' });\n";
             strIServerLayer.push(i);
         } else if (strType == "tdtlayer") {
-            strBaseLayers[i] = " layer" + i + " = new SuperMap.Layer.TDTLayer();\n";
+            //strBaseLayers[i] = " layer" + i + " = new SuperMap.Layer.TDTLayer();\n";
             nCloudNumber.push(i);
-            strInsertscript.push("<script src=\"./js/TDTLayer.js\" >" + "</script" + ">\n");
+            //strInsertscript.push("<script src=\"./js/TDTLayer.js\" >" + "</script" + ">\n");
         } else if (strType == "google") {
             strBaseLayers[i] = " layer" + i + " = new SuperMap.Layer.Google();\n";
             nCloudNumber.push(i);
             strInsertscript.push("<script src='http://maps.google.com/maps/api/js?v=3.5&amp;sensor=false'>" + "</script" + ">\n");
-            strInsertscript.push("<script src='./js/layer/SphericalMercator.js'>" + "</script" + ">\n");
-            strInsertscript.push("<script src='./js/layer/EventPane.js'>" + "</script" + ">\n");
-            strInsertscript.push("<script src='./js/layer/FixedZoomLevels.js'>" + "</script" + ">\n");
-            strInsertscript.push("<script src='./js/layer/Google.js'>" + "</script" + ">\n");
-            strInsertscript.push("<script src='./js/layer/v3.js'>" + "</script" + ">\n");
+            strInsertscript.push("<script src='./libs/layer/SphericalMercator.js'>" + "</script" + ">\n");
+            strInsertscript.push("<script src='./libs/layer/EventPane.js'>" + "</script" + ">\n");
+            strInsertscript.push("<script src='./libs/layer/FixedZoomLevels.js'>" + "</script" + ">\n");
+            strInsertscript.push("<script src='./libs/layer/Google.js'>" + "</script" + ">\n");
+            strInsertscript.push("<script src='./libs/layer/v3.js'>" + "</script" + ">\n");
         } else if (strType == "osm") {
             strBaseLayers[i] = " layer" + i + " = new SuperMap.Layer.OSM('osmLayer');\n";
             nCloudNumber.push(i);
-            strInsertscript.push("<script src='./js/layer/OSM.js'>" + "</script" + ">\n");
+            strInsertscript.push("<script src='./libs/layer/OSM.js'>" + "</script" + ">\n");
 
         } else if (strType == "wms") {
             strUrl = $(this).attr('url');
@@ -686,16 +686,16 @@ function getLayersStr(xml,strBaseLayers,nCloudNumber,strIServerLayer,strInsertsc
             strName = $(this).attr('name');
             strBaseLayers[i] = "layer" + i + " = new SuperMap.Layer.ArcGIS93Rest('" + strName + "',\"" + strUrl+"\" );\n";
             nCloudNumber.push(i);
-            strInsertscript.push("<script src='./js/layer/ArcGIS93Rest.js'>" + "</script" + ">\n");
+            strInsertscript.push("<script src='./libs/layer/ArcGIS93Rest.js'>" + "</script" + ">\n");
         } else if (strType == "baidu") {
             strBaseLayers[i] = "layer" + i + " = new SuperMap.Layer.Baidu();\n";
             nCloudNumber.push(i);
-            strInsertscript.push("<script src='./js/layer/Baidu.js'>" + "</script" + ">\n");
+            strInsertscript.push("<script src='./libs/layer/Baidu.js'>" + "</script" + ">\n");
         }else if (strType == "bing") {
             var apiKey = "AqTGBsziZHIJYYxgivLBf0hVdrAk9mWO5cQcb8Yux8sW5M8c8opEC2lZqKR1ZZXf";
             strBaseLayers[i] = "layer" + i + " = new SuperMap.Layer.Bing("+'{\n                name: "Road",\n                key: "'+apiKey+'",                type: "Road"\n            }'+");\n";
             nCloudNumber.push(i);
-            strInsertscript.push("<script src='./js/layer/Bing.js'>" + "</script" + ">\n");
+            strInsertscript.push("<script src='./libs/layer/Bing.js'>" + "</script" + ">\n");
         }
 
     });
