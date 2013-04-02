@@ -114,7 +114,7 @@
                 var lonLat = new SuperMap.LonLat(event.point.x, event.point.y);
                 var size = new SuperMap.Size(44, 33),
                     offset = new SuperMap.Pixel(-(size.w / 2), -size.h),
-                    icon = new SuperMap.Icon("./theme/images/marker.png", size, offset);
+                    icon = new SuperMap.Icon("demo/theme/images/marker.png", size, offset);
                 this.map.getLayersByName("geoMarker_bev")[0].addMarker(new SuperMap.Marker(lonLat, icon));
                 this.map.setCenter(lonLat);
             },

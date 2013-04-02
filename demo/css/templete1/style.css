@@ -24,7 +24,7 @@ body {
 #logo {
     height: 56px;
     width: 311px;
-    background: url(../../images/frameimages/banner-logo.png);
+    background: url(../../img/banner-logo.png);
     margin: 10px 0px 0px 20px;
 }
 
@@ -122,7 +122,7 @@ body {
 }
 
 .tool_icon {
-    background: url(../../images/frameimages/tool.png);
+    background: url(../../img/tool.png);
 }
 
 .icon16_16 {
@@ -138,19 +138,19 @@ body {
 }
 
 .measure_16_16 {
-    background: url(../../images/frameimages/measure_16_16.png);
+    background: url(../../img/measure_16_16.png);
 }
 
 .geolocate_16_16 {
-    background: url(../../images/frameimages/geolocate_16_16.png);
+    background: url(../../img/geolocate_16_16.png);
 }
 
 .draw_16_16 {
-    background: url(../../images/frameimages/draw_16_16.png);
+    background: url(../../img/draw_16_16.png);
 }
 
 .pan_16_16 {
-    background: url(../../images/frameimages/pan_16_16.png);
+    background: url(../../img/pan_16_16.png);
 }
 
 .menu_txt {

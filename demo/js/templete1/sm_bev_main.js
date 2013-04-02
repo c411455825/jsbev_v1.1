@@ -125,9 +125,9 @@ LazyLoad=function(k){function p(b,a){var g=k.createElement(b),c;for(c in a)a.has
  */
 (function(){
     function A(){
-        var jsPath = "js/";
+        var jsPath = "demo/js/";
         var jqPath = jsPath+"ui/";
-        var cssPath = "css/"
+        var cssPath = "demo/css/"
         /**
          * Property: initJS
          * {Array<String>} 初始化时需要预先加载的js文件
@@ -143,27 +143,27 @@ LazyLoad=function(k){function p(b,a){var g=k.createElement(b),c;for(c in a)a.has
          * {Array<String>} 初始化时需要预先加载的css文件
          */
         this.initCss = [
-            cssPath+"demo1/style.css",
-            "theme/bevThemes/demos.css"
+            cssPath+"templete1/style.css",
+            "demo/uithemes/demos.css"
         ];
         /**
          * Property: widget
          * {Array<String>} 初始化时需要预先加载的控件
          */
         this.widget = [
-            "js/sm_menupanel.js",
-            "js/sm_menu.js",
-            "js/sm_widgetcontrol.js",
-            "js/sm_dialog.js",
-            "js/sm_measure.js",
-            "js/sm_geolocate.js",
-            "js/sm_drawFeature.js"
+            "demo/js/sm_menupanel.js",
+            "demo/js/sm_menu.js",
+            "demo/js/templete1/sm_widgetcontrol.js",
+            "demo/js/sm_dialog.js",
+            "demo/js/sm_measure.js",
+            "demo/js/sm_geolocate.js",
+            "demo/js/sm_drawFeature.js"
         ]
         /**
          * Property: themePath
          * {String} SuperMap.Bev.Theme类的文件路径
          */
-        this.themePath = jsPath+"/demo1/sm_theme.js";
+        this.themePath = jsPath+"/templete1/sm_theme.js";
         this.loadTimes = 0;
         this.cache = {};
     }

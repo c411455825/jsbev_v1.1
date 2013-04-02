@@ -132,8 +132,8 @@
      */
     B.set = function(themeName){
         var path,me = this;
-        path = ["theme/bevThemes/" + themeName + "/jquery.ui.all.css"];
-        path.push("theme/bevThemes/" + themeName + "/jquery.ui.theme.css");//jquery.ui.theme
+        path = ["demo/uithemes/" + themeName + "/jquery.ui.all.css"];
+        path.push("demo/uithemes/" + themeName + "/jquery.ui.theme.css");//jquery.ui.theme
         SuperMap.Bev.Main.load("css",path,function(){
             me.setStyle(themeName);
             me.setFontColor(themeName);

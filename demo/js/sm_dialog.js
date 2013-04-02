@@ -99,11 +99,11 @@
         null,                                      //父类
         false,                                     //是否是静态类
         [                                          //初始化该类之前需要加载的js文件
-            "js/ui/jquery.ui.widget.js",
-            "js/ui/jquery.ui.position.js",
-            "js/ui/jquery.ui.mouse.js",
-            "js/ui/jquery.ui.draggable.js",
-            "js/ui/jquery.ui.dialog.js"
+            "demo/js/ui/jquery.ui.widget.js",
+            "demo/js/ui/jquery.ui.position.js",
+            "demo/js/ui/jquery.ui.mouse.js",
+            "demo/js/ui/jquery.ui.draggable.js",
+            "demo/js/ui/jquery.ui.dialog.js"
         ]
     );
 })()

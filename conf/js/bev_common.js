@@ -249,7 +249,7 @@ function generate_custom() {
         name = "t1";
     }
     else{
-        name = base;
+        name = "t2";
     }
     strBase = "<template name=\""+base+"\" src=\"./templete/" + name + ".html\" />";
     var strservertype = document.getElementById("servertype").value;
@@ -415,7 +415,7 @@ function generate_xml_1(xml) {
         $.post("./page." + str_server,
             { text:unescape(data), page_name:str_page_name + ".html" },
             function (value) {
-                window.location = "../demo/" + str_page_name + ".html";
+                window.location = "../" + str_page_name + ".html";
             });
     });
 }
@@ -611,7 +611,7 @@ function generate_xml_2(xml) {
         $.post("./page." + str_server,
             { text:unescape(data), page_name:str_page_name + ".html" },
             function (value) {
-                window.location = "../demo/" + str_page_name + ".html";
+                window.location = "../" + str_page_name + ".html";
             });
     });
 }

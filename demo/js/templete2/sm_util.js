@@ -137,9 +137,9 @@
         null,                        //父类
         true,                       //是否是静态类
         [
-            "js/ui/jquery.ui.widget.js",
-            "js/ui/jquery.ui.button.js",
-            "js/sm_util.js"
+            "demo/js/ui/jquery.ui.widget.js",
+            "demo/js/ui/jquery.ui.button.js",
+            "demo/js/sm_util.js"
         ]
     );
 })();

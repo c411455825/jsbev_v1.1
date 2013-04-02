@@ -47,9 +47,9 @@ LazyLoad=function(k){function p(b,a){var g=k.createElement(b),c;for(c in a)a.has
  */
 (function(){
     function A(){
-        var jsPath = "js/";
+        var jsPath = "demo/js/";
         var jqPath = jsPath+"ui/";
-        var cssPath = "css/";
+        var cssPath = "demo/css/";
         /**
          * Property: initJS
          * {Array<String>} 初始化时需要预先加载的js文件
@@ -65,27 +65,27 @@ LazyLoad=function(k){function p(b,a){var g=k.createElement(b),c;for(c in a)a.has
          * {Array<String>} 初始化时需要预先加载的css文件
          */
         this.initCss = [
-            cssPath+"demo2/style.css",
-            "theme/bevThemes/demos.css"
+            cssPath+"templete2/style.css",
+            "demo/uithemes/demos.css"
         ];
         /**
          * Property: widget
          * {Array<String>} 初始化时需要预先加载的控件
          */
         this.widget = [
-            "js/sm_accordion.js",
-            "js/sm_icon.js",
-            "js/sm_measure.js",
-            "js/sm_tooltip.js",
-            "js/sm_geolocate.js",
-            "js/demo2/sm_util.js",
-            "js/sm_drawFeature.js"
+            "demo/js/sm_accordion.js",
+            "demo/js/sm_icon.js",
+            "demo/js/sm_measure.js",
+            "demo/js/sm_tooltip.js",
+            "demo/js/sm_geolocate.js",
+            "demo/js/templete2/sm_util.js",
+            "demo/js/sm_drawFeature.js"
         ]
         /**
          * Property: themePath
          * {String} SuperMap.Bev.Theme类的文件路径
          */
-        this.themePath = jsPath+"demo2/sm_theme.js";
+        this.themePath = jsPath+"templete2/sm_theme.js";
         this.loadTimes = 0;
         this.cache = {};
     }
@@ -207,7 +207,7 @@ LazyLoad=function(k){function p(b,a){var g=k.createElement(b),c;for(c in a)a.has
         }
     }
    // SuperMap.Bev.Class.register("SuperMap.Bev.Main",A,null,true);
-    LazyLoad.js("js/sm_class.js",function(){
+    LazyLoad.js("demo/js/sm_class.js",function(){
         SuperMap.Bev.Class.register("SuperMap.Bev.Main",A,null,true);
     })
 })()
