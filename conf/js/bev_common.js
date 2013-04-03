@@ -224,6 +224,10 @@ function generate_custom() {
         } else if (strlayertype == "arcgis") {
             strLayer = strLayer + "<layer name=\"" + strName + "\" type=\"arcgis\" url=\"" + strUrl + "\" />";
         }
+        else if (strlayertype == "tdtlayer") {
+            strLayer = strLayer + "<layer name=\"" + strName + "\" type=\"tdtlayer\"/>";
+            strLayer = strLayer + "<layer name=\"" + strName + "_l\" type=\"tdtlayer_l\"/>";
+        }
         else {
             strLayer = strLayer + "<layer type=\"" + strlayertype + "\" />";
         }
@@ -637,7 +641,7 @@ function getControlsStr(xml,strControls,strControlsMessage,strMap,bankNums){
             strControlsMessage = strControlsMessage + strControls[i] + ",\n";
         }
     }
-    strControlsMessage = strControlsMessage + "\n"+getBanks(bankNums+8)+"],\n"+getBanks(bankNums+8)+"units: 'm',\n"+getBanks(bankNums+8)+"projection: 'EPSG:3857'\n"+getBanks(bankNums+4)+"}";
+    strControlsMessage = strControlsMessage + "\n"+getBanks(bankNums+8)+"],\n"+getBanks(bankNums+8)+"units: 'm',\n"+getBanks(bankNums+8)+"projection: 'EPSG:3857',\n"+getBanks(bankNums+8)+"allOverlays: true\n"+getBanks(bankNums+4)+"}";
     strMap = "\n"+getBanks(bankNums)+"map = new SuperMap.Map(\n"+getBanks(bankNums+4)+"'mapContainer',"+ strControlsMessage + "\n"+getBanks(bankNums)+");\n";
 
     return strMap;
@@ -659,22 +663,26 @@ function getLayersStr(xml,strBaseLayers,nCloudNumber,strIServerLayer,strInsertsc
             strBaseLayers[i] = " layer" + i + " = new SuperMap.Layer.TiledDynamicRESTLayer(' " + strName + "','" + strUrl + "', { transparent: true, cacheEnabled: true }, { maxResolution: 'auto' });\n";
             strIServerLayer.push(i);
         } else if (strType == "tdtlayer") {
-            //strBaseLayers[i] = " layer" + i + " = new SuperMap.Layer.TDTLayer();\n";
+            strBaseLayers[i] = " layer" + i + " = new SuperMap.Layer.Tianditu({\"layerType\":\"vec\"});\n";
             nCloudNumber.push(i);
-            //strInsertscript.push("<script src=\"./js/TDTLayer.js\" >" + "</script" + ">\n");
-        } else if (strType == "google") {
+            strInsertscript.push("<script src='demo/libs/layer/Tianditu.js'>" + "</script" + ">\n");
+        }else if (strType == "tdtlayer_l") {
+            strBaseLayers[i] = " layer" + i + " = new SuperMap.Layer.Tianditu({\"layerType\":\"vec\",\"isLabel\":true});\n";
+            nCloudNumber.push(i);
+            //strInsertscript.push("<script src='demo/libs/layer/Tianditu.js'>" + "</script" + ">\n");
+        }else if (strType == "google") {
             strBaseLayers[i] = " layer" + i + " = new SuperMap.Layer.Google();\n";
             nCloudNumber.push(i);
             strInsertscript.push("<script src='http://maps.google.com/maps/api/js?v=3.5&amp;sensor=false'>" + "</script" + ">\n");
-            strInsertscript.push("<script src='./libs/layer/SphericalMercator.js'>" + "</script" + ">\n");
-            strInsertscript.push("<script src='./libs/layer/EventPane.js'>" + "</script" + ">\n");
-            strInsertscript.push("<script src='./libs/layer/FixedZoomLevels.js'>" + "</script" + ">\n");
-            strInsertscript.push("<script src='./libs/layer/Google.js'>" + "</script" + ">\n");
-            strInsertscript.push("<script src='./libs/layer/v3.js'>" + "</script" + ">\n");
+            strInsertscript.push("<script src='demo/libs/layer/SphericalMercator.js'>" + "</script" + ">\n");
+            strInsertscript.push("<script src='demo/libs/layer/EventPane.js'>" + "</script" + ">\n");
+            strInsertscript.push("<script src='demo/libs/layer/FixedZoomLevels.js'>" + "</script" + ">\n");
+            strInsertscript.push("<script src='demo/libs/layer/Google.js'>" + "</script" + ">\n");
+            strInsertscript.push("<script src='demo/libs/layer/v3.js'>" + "</script" + ">\n");
         } else if (strType == "osm") {
             strBaseLayers[i] = " layer" + i + " = new SuperMap.Layer.OSM('osmLayer');\n";
             nCloudNumber.push(i);
-            strInsertscript.push("<script src='./libs/layer/OSM.js'>" + "</script" + ">\n");
+            strInsertscript.push("<script src='demo/libs/layer/OSM.js'>" + "</script" + ">\n");
 
         } else if (strType == "wms") {
             strUrl = $(this).attr('url');
@@ -686,16 +694,16 @@ function getLayersStr(xml,strBaseLayers,nCloudNumber,strIServerLayer,strInsertsc
             strName = $(this).attr('name');
             strBaseLayers[i] = "layer" + i + " = new SuperMap.Layer.ArcGIS93Rest('" + strName + "',\"" + strUrl+"\" );\n";
             nCloudNumber.push(i);
-            strInsertscript.push("<script src='./libs/layer/ArcGIS93Rest.js'>" + "</script" + ">\n");
+            strInsertscript.push("<script src='demo/libs/layer/ArcGIS93Rest.js'>" + "</script" + ">\n");
         } else if (strType == "baidu") {
             strBaseLayers[i] = "layer" + i + " = new SuperMap.Layer.Baidu();\n";
             nCloudNumber.push(i);
-            strInsertscript.push("<script src='./libs/layer/Baidu.js'>" + "</script" + ">\n");
+            strInsertscript.push("<script src='demo/libs/layer/Baidu.js'>" + "</script" + ">\n");
         }else if (strType == "bing") {
             var apiKey = "AqTGBsziZHIJYYxgivLBf0hVdrAk9mWO5cQcb8Yux8sW5M8c8opEC2lZqKR1ZZXf";
             strBaseLayers[i] = "layer" + i + " = new SuperMap.Layer.Bing("+'{\n                name: "Road",\n                key: "'+apiKey+'",                type: "Road"\n            }'+");\n";
             nCloudNumber.push(i);
-            strInsertscript.push("<script src='./libs/layer/Bing.js'>" + "</script" + ">\n");
+            strInsertscript.push("<script src='demo/libs/layer/Bing.js'>" + "</script" + ">\n");
         }
 
     });
