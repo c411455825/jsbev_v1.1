@@ -408,6 +408,7 @@ function generate_xml_1(xml) {
 
         var str_server_use = $(xml).find("server_use").text();
         var str_server = "jsp";
+		var str_page_name1 = null;
         if (str_server_use === "IIS") {
             str_server = "asp"
         } else if (str_server_use === "Tomcat") {
@@ -415,9 +416,10 @@ function generate_xml_1(xml) {
         }
         else if (str_server_use === "php") {
             str_server = "php";
+			str_page_name1 = "../"+str_page_name
         }
         $.post("./page." + str_server,
-            { text:unescape(data), page_name:str_page_name + ".html" },
+            { text:unescape(data), page_name:(str_page_name1||str_page_name) + ".html" },
             function (value) {
                 window.location = "../" + str_page_name + ".html";
             });
@@ -604,6 +606,7 @@ function generate_xml_2(xml) {
 
         var str_server_use = $(xml).find("server_use").text();
         var str_server = "jsp";
+		var str_page_name1 = null;
         if (str_server_use === "IIS") {
             str_server = "asp"
         } else if (str_server_use === "Tomcat") {
@@ -611,9 +614,10 @@ function generate_xml_2(xml) {
         }
         else if (str_server_use === "php") {
             str_server = "php";
+			str_page_name1 = "../" + str_page_name
         }
         $.post("./page." + str_server,
-            { text:unescape(data), page_name:str_page_name + ".html" },
+            { text:unescape(data), page_name:str_page_name1||str_page_name + ".html" },
             function (value) {
                 window.location = "../" + str_page_name + ".html";
             });
