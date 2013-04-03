@@ -42,6 +42,84 @@ LazyLoad=function(k){function p(b,a){var g=k.createElement(b),c;for(c in a)a.has
     b.urls[0]){l("css");break}h+=1;b&&(h<200?setTimeout(t,50):l("css"))}}var c,s,m={},h=0,n={css:[],js:[]},v=k.styleSheets;return{css:function(b,a,c,f){j("css",b,a,c,f)},js:function(b,a,c,f){j("js",b,a,c,f)}}}(this.document);
 
 /**
+ * Class: SuperMap.Bev.Class
+ * class类,实现面向对象。
+ */
+(function(){
+    function A(){}
+    /**
+     * Method: register
+     * 注册一个类。
+     *
+     * Parameters:
+     * className - {String} 类的名称
+     * classObj - {Object} 类对象，包括一些属性和方法
+     * extend - {String} 父类的名称
+     * isStatic - {Boolean} 是否是静态类
+     */
+    A.register = function(className,classObj,extend,isStatic){
+        var names,space = window,name,lastName;
+
+        names = className.split(".");
+        lastName = names.pop();
+        for(var i=0;i<names.length;i++){
+            name = names[i];
+            if(!space[name]){
+                space[name] = {};
+            }
+            space = space[name];
+        }
+        if(lastName){
+            if(isStatic){
+                space[lastName] = new classObj();
+            }
+            else{
+                space[lastName] = classObj;
+            }
+        }
+
+        if(extend) classObj.prototype = eval("(new " + extend + ")");
+    }
+//    A.requires = function(paths,callback){
+//
+//    }
+    /**
+     * Method: create
+     * 创建一个类。
+     *
+     * Parameters:
+     * className - {String} 类的名称
+     * object - {Object} 类对象，包括一些属性和方法
+     * extend - {String} 父类的名称
+     * isTtatic - {Boolean} 是否是静态类
+     * depend - {Array<String>} 初始化该类前需要加载的依赖脚本
+     */
+    A.create = function(className,object,extend,isTtatic,depend){
+        var me=this;
+        if(depend){
+            SuperMap.Bev.Main.loadClass(className+"_depend",depend,function(className,object,extend,isTtatic,depend){
+                return function(){
+                    _create(className,object,extend,isTtatic,depend);
+                }
+            }(className,object,extend,isTtatic,depend));
+        }
+        else{
+            _create(className,object,extend,isTtatic,depend);
+        }
+        function _create(className,object,extend,isTtatic,depend){
+            var C = function(){if(this.init)this.init.apply(this,arguments);}, p;
+            if(extend) C.prototype = eval("(new " + extend + "())");
+            for(var key in object){
+                p = object[key];
+                C.prototype[key] = p;
+            }
+            me.register(className,C,null,isTtatic);
+        }
+    }
+    A.register("SuperMap.Bev.Class",A);
+})();
+
+/**
  * Class: SuperMap.Bev.Main
  * bev框架的初始化类.
  */
@@ -206,8 +284,8 @@ LazyLoad=function(k){function p(b,a){var g=k.createElement(b),c;for(c in a)a.has
             return i;
         }
     }
-   // SuperMap.Bev.Class.register("SuperMap.Bev.Main",A,null,true);
-    LazyLoad.js("demo/js/sm_class.js",function(){
-        SuperMap.Bev.Class.register("SuperMap.Bev.Main",A,null,true);
-    })
+    SuperMap.Bev.Class.register("SuperMap.Bev.Main",A,null,true);
+//    LazyLoad.js("demo/js/sm_class.js",function(){
+//        SuperMap.Bev.Class.register("SuperMap.Bev.Main",A,null,true);
+//    })
 })()
