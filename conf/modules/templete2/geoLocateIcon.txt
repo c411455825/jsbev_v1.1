@@ -1,6 +1,6 @@
 ﻿            var myIcon3 = new SuperMap.Bev.Icon($("#bd_toolbar"),{
                 "title":"定位",
-                "img":"images/frameimages/geolocate_16_16.png",
+                "img":"demo/img/geolocate_16_16.png",
                 "click":function(){
                     var g = getGeolocate();
                     g.geolocateMe();
@@ -10,7 +10,7 @@
 
             var myIcon4 = new SuperMap.Bev.Icon($("#bd_toolbar"),{
                 "title":"清除标记",
-                "img":"images/frameimages/clear.png",
+                "img":"demo/img/clear.png",
                 "click":function(){
                     var g = getGeolocate();
                     g.clearGeoMarkers();
