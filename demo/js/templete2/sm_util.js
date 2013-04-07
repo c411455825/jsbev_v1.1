@@ -139,7 +139,7 @@
         [
             "demo/js/ui/jquery.ui.widget.js",
             "demo/js/ui/jquery.ui.button.js",
-            "demo/js/sm_util.js"
+            "demo/js/controls/sm_util.js"
         ]
     );
 })();
