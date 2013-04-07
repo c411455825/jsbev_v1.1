@@ -1,21 +1,52 @@
 ﻿/**
  * Class: SuperMap.Bev.Theme
  * 主题类,设置框架的主题。
- *(code)
- * SuperMap.Bev.Theme.set("dot-luv");
- * (end)
  */
 (function(){
     function A(){
-//        this.themes = {//[background_color,background_image,border_color,widgetControlBorder]
-//            "base":["#3BAAE3","ui-bg_highlight-soft_75_cccccc_1x100","#AAA"],
-//            "cupertino":["","","#AED0EA"],
-//            "start":["#3BAAE3","ui-bg_glass_50_3baae3_1x400","#2694E8"]
-//        }
         this.init();
     }
     var B = A.prototype;
     B.init = function(){
+    }
+    /**
+     * APIMethod: set
+     * 设置主题
+     *
+     * Parameters:
+     * themeName - {String} 主题名称
+     *
+     * Examples:
+     * (code)
+     * SuperMap.Bev.Theme.set("dot-luv");
+     * (end)
+     */
+    B.set = function(themeName){
+        var path,me = this;
+        path = ["demo/uithemes/" + themeName + "/jquery.ui.all.css"];
+        path.push("demo/uithemes/" + themeName + "/jquery.ui.theme.css");//jquery.ui.theme
+        SuperMap.Bev.Main.load("css",path,function(){
+            me.setStyle(themeName);
+            me.setFontColor(themeName);
+        },null);
+    }
+    /**
+     * APIMethod: createStyle
+     * 动态创建css样式
+     *
+     * Parameters:
+     * css - {String} css样式
+     */
+    B.createStyle = function(css){
+        if(document.all){
+            window.style=css;
+            document.createStyleSheet("javascript:style");
+        }else{
+            var style = document.createElement('style');
+            style.type = 'text/css';
+            style.innerHTML=css;
+            document.getElementsByTagName('head').item(0).appendChild(style);
+        }
     }
     /**
      * Method: setFontColor
@@ -63,53 +94,6 @@
             "border: " + borderCss +
             "}";
         this.createStyle(cssTxt);
-    }
-    /**
-     * APIMethod: createStyle
-     * 动态创建css样式
-     *
-     * Parameters:
-     * css - {String} css样式
-     */
-    B.createStyle = function(css){
-        if(document.all){
-            window.style=css;
-            document.createStyleSheet("javascript:style");
-        }else{
-            var style = document.createElement('style');
-            style.type = 'text/css';
-            style.innerHTML=css;
-            document.getElementsByTagName('head').item(0).appendChild(style);
-        }
-    }
-//    B.getStyleProperty = function(className, prop){
-//        if (obj.currentStyle) //IE
-//        {
-//            return obj.currentStyle[prop];
-//        }
-//        else if (window.getComputedStyle) //非IE
-//        {
-//            propprop = prop.replace (/([A-Z])/g, "-$1");
-//            propprop = prop.toLowerCase ();
-//            return document.defaultView.getComputedStyle(obj,null)[propprop];
-//        }
-//        return null;
-//    }
-    /**
-     * APIMethod: set
-     * 设置主题
-     *
-     * Parameters:
-     * themeName - {String} 主题名称
-     */
-    B.set = function(themeName){
-        var path,me = this;
-        path = ["demo/uithemes/" + themeName + "/jquery.ui.all.css"];
-        path.push("demo/uithemes/" + themeName + "/jquery.ui.theme.css");//jquery.ui.theme
-        SuperMap.Bev.Main.load("css",path,function(){
-            me.setStyle(themeName);
-            me.setFontColor(themeName);
-        },null);
     }
     SuperMap.Bev.Class.register("SuperMap.Bev.Theme",A,null,true);
 })()

@@ -1,6 +1,6 @@
 @echo off
 
-set NaturalDocsParams=-i ..\demo\js -xi ..\demo\js\templete2 -o HTML ..\Doc -p ..\apidoc_config -s 1 -s 2 -s 3 -s 4 -s 5
+set NaturalDocsParams=-i ..\demo\js\controls -i ..\demo\js\templete1 -o HTML ..\Doc -p ..\apidoc_config -s 1 -s 2 -s 3 -s 4 -s 5
 ::Roman
 ::Small
 
@@ -18,6 +18,6 @@ goto MORE
 
 D:\pro\strawberry\perl\bin\perl.exe NaturalDocs %NaturalDocsParams%
 
-set NaturalDocsParams=-i ..\demo\js -xi ..\demo\js\templete2 -o HTML ..\Doc -p ..\apidoc_config -s 1 -s 2 -s 3 -s 4 -s 5
+set NaturalDocsParams=-i ..\demo\js\controls -i ..\demo\js\templete1 -o HTML ..\Doc -p ..\apidoc_config -s 1 -s 2 -s 3 -s 4 -s 5
 
 pause

@@ -1,8 +1,17 @@
 ﻿/**
  * Class: SuperMap.Bev.Class
- * class类,实现面向对象。
+ * 实现面向对象。
  */
 (function(){
+    /**
+     * Constructor: SuperMap.Bev.Class
+     * 实现面向对象。
+     *
+     * Examples:
+     * (code)
+     * SuperMap.Bev.Class.create("SuperMap.Bev.Test",{},null,false,null);
+     * (end)
+     */
     function A(){}
     /**
      * Method: register
@@ -41,7 +50,7 @@
 //
 //    }
     /**
-     * Method: create
+     * APIMethod: create
      * 创建一个类。
      *
      * Parameters:

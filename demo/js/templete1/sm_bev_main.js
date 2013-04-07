@@ -41,22 +41,8 @@ LazyLoad=function(k){function p(b,a){var g=k.createElement(b),c;for(c in a)a.has
     e.setAttribute("charset","utf-8"),c.ie&&!o?e.onreadystatechange=function(){if(/loaded|complete/.test(e.readyState))e.onreadystatechange=null,j()}:o&&(c.gecko||c.webkit)?c.webkit?(r.urls[d]=e.href,t()):(e.innerHTML='@import "'+g+'";',u(e)):e.onload=e.onerror=j,q.push(e);d=0;for(i=q.length;d<i;++d)s.appendChild(q[d])}}function u(b){var a;try{a=!!b.sheet.cssRules}catch(c){h+=1;h<200?setTimeout(function(){u(b)},50):a&&l("css");return}l("css")}function t(){var b=m.css,a;if(b){for(a=v.length;--a>=0;)if(v[a].href===
     b.urls[0]){l("css");break}h+=1;b&&(h<200?setTimeout(t,50):l("css"))}}var c,s,m={},h=0,n={css:[],js:[]},v=k.styleSheets;return{css:function(b,a,c,f){j("css",b,a,c,f)},js:function(b,a,c,f){j("js",b,a,c,f)}}}(this.document);
 
-/**
- * Class: SuperMap.Bev.Class
- * class类,实现面向对象。
- */
 (function(){
     function A(){}
-    /**
-     * Method: register
-     * 注册一个类。
-     *
-     * Parameters:
-     * className - {String} 类的名称
-     * classObj - {Object} 类对象，包括一些属性和方法
-     * extend - {String} 父类的名称
-     * isStatic - {Boolean} 是否是静态类
-     */
     A.register = function(className,classObj,extend,isStatic){
         var names,space = window,name,lastName;
 
@@ -80,20 +66,6 @@ LazyLoad=function(k){function p(b,a){var g=k.createElement(b),c;for(c in a)a.has
 
         if(extend) classObj.prototype = eval("(new " + extend + ")");
     }
-//    A.requires = function(paths,callback){
-//
-//    }
-    /**
-     * Method: create
-     * 创建一个类。
-     *
-     * Parameters:
-     * className - {String} 类的名称
-     * object - {Object} 类对象，包括一些属性和方法
-     * extend - {String} 父类的名称
-     * isTtatic - {Boolean} 是否是静态类
-     * depend - {Array<String>} 初始化该类前需要加载的依赖脚本
-     */
     A.create = function(className,object,extend,isTtatic,depend){
         var me=this;
         if(depend){
@@ -127,7 +99,7 @@ LazyLoad=function(k){function p(b,a){var g=k.createElement(b),c;for(c in a)a.has
     function A(){
         var jsPath = "demo/js/";
         var jqPath = jsPath+"ui/";
-        var cssPath = "demo/css/"
+        var cssPath = "demo/css/";
         /**
          * Property: initJS
          * {Array<String>} 初始化时需要预先加载的js文件
@@ -169,11 +141,18 @@ LazyLoad=function(k){function p(b,a){var g=k.createElement(b),c;for(c in a)a.has
     }
     var B = A.prototype;
     /**
-     * Method: init
-     * init方法，加载一些初始化文件。
+     * APIMethod: init
+     * 初始化bev框架。
      *
      * Parameters:
      * callback - {Function} 回调方法
+     *
+     * Examples:
+     * (code)
+     * SuperMap.Bev.Main.init(function(){
+     *     //your code
+     * });
+     * (end)
      */
     B.init = function(callback){
         var me = this;

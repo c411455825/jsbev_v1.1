@@ -1,8 +1,8 @@
 Format: 1.52
 
 
-Title: SuperMap
-SubTitle: JavaScript源代码
+Title: SuperMap JSBev
+SubTitle: JSBev控件API
 
 Footer: 北京超图软件股份有限公司
 Timestamp: 更新于 10/28/2012
@@ -35,28 +35,30 @@ Timestamp: 更新于 10/28/2012
 # time it is run.  When working with groups, just deal with the braces and
 # forget about the indentation and comments.
 # 
+# You can use this file on other computers even if they use different
+# directories.  As long as the command line points to the same source files,
+# Natural Docs will be able to correct the locations automatically.
+# 
 # --------------------------------------------------------------------------
 
 
-File: Accordion  (sm_accordion.js)
-File: Class  (sm_class.js)
-File: Dialog  (sm_dialog.js)
-File: DrawFeature  (sm_drawFeature.js)
-File: Geolocate  (sm_geolocate.js)
-File: Icon  (sm_icon.js)
-File: Measure  (sm_measure.js)
-File: Menu  (sm_menu.js)
-File: MenuPanel  (sm_menupanel.js)
+Group: Controls  {
 
-Group: Templete1  {
-
-   File: Class  (templete1\sm_bev_main.js)
-   File: sm_theme.js  (templete1\sm_theme.js)
-   File: sm_widgetcontrol.js  (templete1\sm_widgetcontrol.js)
-   }  # Group: Templete1
-
-File: Tooltip  (sm_tooltip.js)
-File: Util  (sm_util.js)
+   File: Main  (D:\SuperMap\smiserver_java_613_9709_3283_x86_chs_zip\webapps\jsbev_v1.1\demo\js\templete1\sm_bev_main.js)
+   File: Theme  (no auto-title, D:\SuperMap\smiserver_java_613_9709_3283_x86_chs_zip\webapps\jsbev_v1.1\demo\js\templete1\sm_theme.js)
+   File: WidgetControl  (no auto-title, D:\SuperMap\smiserver_java_613_9709_3283_x86_chs_zip\webapps\jsbev_v1.1\demo\js\templete1\sm_widgetcontrol.js)
+   File: Accordion  (D:\SuperMap\smiserver_java_613_9709_3283_x86_chs_zip\webapps\jsbev_v1.1\demo\js\controls\sm_accordion.js)
+   File: Class  (D:\SuperMap\smiserver_java_613_9709_3283_x86_chs_zip\webapps\jsbev_v1.1\demo\js\controls\sm_class.js)
+   File: Dialog  (D:\SuperMap\smiserver_java_613_9709_3283_x86_chs_zip\webapps\jsbev_v1.1\demo\js\controls\sm_dialog.js)
+   File: DrawFeature  (D:\SuperMap\smiserver_java_613_9709_3283_x86_chs_zip\webapps\jsbev_v1.1\demo\js\controls\sm_drawFeature.js)
+   File: Geolocate  (D:\SuperMap\smiserver_java_613_9709_3283_x86_chs_zip\webapps\jsbev_v1.1\demo\js\controls\sm_geolocate.js)
+   File: Icon  (D:\SuperMap\smiserver_java_613_9709_3283_x86_chs_zip\webapps\jsbev_v1.1\demo\js\controls\sm_icon.js)
+   File: Measure  (D:\SuperMap\smiserver_java_613_9709_3283_x86_chs_zip\webapps\jsbev_v1.1\demo\js\controls\sm_measure.js)
+   File: Menu  (D:\SuperMap\smiserver_java_613_9709_3283_x86_chs_zip\webapps\jsbev_v1.1\demo\js\controls\sm_menu.js)
+   File: MenuPanel  (D:\SuperMap\smiserver_java_613_9709_3283_x86_chs_zip\webapps\jsbev_v1.1\demo\js\controls\sm_menupanel.js)
+   File: Tooltip  (D:\SuperMap\smiserver_java_613_9709_3283_x86_chs_zip\webapps\jsbev_v1.1\demo\js\controls\sm_tooltip.js)
+   File: Util  (D:\SuperMap\smiserver_java_613_9709_3283_x86_chs_zip\webapps\jsbev_v1.1\demo\js\controls\sm_util.js)
+   }  # Group: Controls
 
 Group: Index  {
 
@@ -68,3 +70,8 @@ Group: Index  {
    Constructor Index: Constructor
    }  # Group: Index
 
+
+
+##### Do not change or remove these lines. #####
+Data: 1(D333BwbrNIGHPpIb6E86GH/GHVlp/pVSDTVkq2kVThJTVsJSV9R6Vj8Ib7GYpII6bl6YG/V/DMDbfGEubl6b9u\tHuo6)
+Data: 1(h333BwbrNIGHPpIb6E86GH/GHVlp/pVSDTVkq2kVThJTVsJSV9R6Vj8Ib7GYpII6bl6YG/V/DMDbfGEubl6btGEIoGtGD)
