@@ -4,11 +4,24 @@
 	<title>supermap</title> 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .measure_16_16 {
+            background: url(demo/img/mesure_16_16_t3.png);
+        }
+
+        .geolocate_16_16 {
+            background: url(demo/img/geolocate_16_16_t3.png);
+        }
+
+        .draw_16_16 {
+            background: url(demo/img/draw_16_16_t3.png);
+        }
+    </style>
     <script src="demo/libs/SuperMap.Include.js"></script><!--引入SuperMap iClient For JavaScript类库-->
     <script src="common/js/jquery-1.8.2.js"></script>
     <script src="demo/js/templete3/bev_main.js"></script>                    <!--引入bev入口脚本-->
     <script type="text/javascript">
-        var myNavigation,map,layer0;
+        var myNavigation,map,layer0,myToolBar,myMeasure,myGeolocate,myDrawFeature;
         function init() {
             //初始化bev框架，
             SuperMap.Bev.Main.init(function(){
@@ -25,11 +38,99 @@
                 layer0 = new SuperMap.Layer.CloudLayer();
                 map.addLayer(layer0);
                 map.setCenter(new SuperMap.LonLat(0 , 0) , 2);
+
+                myToolBar.setMap(map);
             });
         }
 
         function initDemo(){
-            var myToolBar = new SuperMap.Bev.ToolBar($("#toolbar"));
+            myToolBar = new SuperMap.Bev.ToolBar($("#toolbar"),map,[
+                {
+                    "icon":"demo/img/mesure_t3.png",
+                    "title":"基本操作",
+                    "menu":new SuperMap.Bev.Menu(null,{
+                        "tree":[
+                            {
+                                "icon":"measure_16_16",
+                                "text":"量&nbsp;&nbsp;&nbsp;&nbsp;算",
+                                "events":{
+                                    "click":function () {
+                                        if (!myMeasure) {//!myMeasure
+                                            var dialog = new SuperMap.Bev.Dialog(null,{
+                                                "icon":"measure_16_16",
+                                                "text":"量&nbsp;&nbsp;&nbsp;&nbsp;算"
+                                            });
+
+                                            var contentBody = dialog.getContentBody();
+                                            myMeasure = new SuperMap.Bev.Measure(contentBody, map);
+                                            dialog.on("dialogclose", function () {
+                                                if (myMeasure) {
+                                                    myMeasure.destroy();
+                                                    myMeasure = null;
+                                                }
+                                            })
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "icon":"geolocate_16_16",
+                                "text":"定&nbsp;&nbsp;&nbsp;&nbsp;位",
+                                "events":{
+                                    "click":function () {
+                                        if (!myGeolocate) {
+                                            var dialog = new SuperMap.Bev.Dialog(null,{
+                                                "icon":"geolocate_16_16",
+                                                "text":"定&nbsp;&nbsp;&nbsp;&nbsp;位"
+                                            });
+
+                                            var contentBody = dialog.getContentBody();
+                                            myGeolocate = new SuperMap.Bev.Geolocate(contentBody, map);
+                                            dialog.on("dialogclose", function () {
+                                                if (myGeolocate) {
+                                                    myGeolocate.destroy();
+                                                    myGeolocate = null;
+                                                }
+                                            })
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "icon":"draw_16_16",
+                                "text":"绘&nbsp;&nbsp;&nbsp;&nbsp;制",
+                                "events":{
+                                    "click":function () {
+                                        if (!myDrawFeature) {
+                                            var dialog = new SuperMap.Bev.Dialog(null, {
+                                                "icon":"draw_16_16",
+                                                "text":"绘&nbsp;&nbsp;&nbsp;&nbsp;制"
+                                            });
+
+                                            var contentBody = dialog.getContentBody();
+                                            myDrawFeature = new SuperMap.Bev.DrawFeature(contentBody, map);
+                                            dialog.on("dialogclose", function () {
+                                                if (myDrawFeature) {
+                                                    myDrawFeature.destroy();
+                                                    myDrawFeature = null;
+                                                }
+                                            })
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    })
+                }
+//                {
+//                    "icon":"demo/img/geolocate_t3.png",
+//                    "title":"定位"
+//                },
+//                {
+//                    "icon":"demo/img/draw_t3.png",
+//                    "title":"绘制"
+//                }
+            ]);
         }
     </script>
 </head>
@@ -67,4 +168,5 @@
         }
     })();
 </script>
+<script type="text/javascript" src="log.js"></script>
 </html>

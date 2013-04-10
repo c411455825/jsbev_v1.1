@@ -22,6 +22,11 @@
              */
             content:null,
             /**
+             * APIProperty: widgetControl
+             * {SuperMap.Bev.WidgetControl} 窗口管理工具
+             */
+            widgetControl:null,
+            /**
              * APIProperty: head
              * {Object} 窗口头部符号和文字标题
              * (code)
@@ -53,8 +58,9 @@
              * });
              * (end)
              */
-            "init":function (content, head) {
+            "init":function (widgetControl, content, head) {
                 this.content = content;
+                this.widgetControl = widgetControl;
                 this.head = head;
                 this.create();
             },
@@ -65,12 +71,13 @@
             create:function () {
                 var body, content;
 
-                this.body = body = $("<div title=\"Basic dialog\" class=\"dialog\"></div>")
-                    .appendTo($("body"));
+                this.body = body = $("<div title=\"Basic dialog\" class=\"dialog\"></div>");
                 this.content_body = content = $("<div class=\"jsBev_sample\"></div>");
                 content.appendTo(body);
                 if (this.content)content.append(this.content);
-                body.dialog();
+
+                this.widgetControl.addWidget(body);
+
                 body.dialog(
                     "option", "title",
                     "<span class=\"icon16_16 " + this.head.icon + " dialog_title_icon\"></span><span class=\"dialog_title_txt\">" + this.head.text + "</span>");

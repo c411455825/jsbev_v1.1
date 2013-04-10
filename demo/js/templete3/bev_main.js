@@ -148,8 +148,12 @@ LazyLoad=function(k){function p(b,a){var g=k.createElement(b),c;for(c in a)a.has
          * {Array<String>} 初始化时需要预先加载的控件
          */
         this.widget = [
-            "demo/js/controls/sm_accordion.js",
-            "demo/js/templete3/sm_toolbar.js"
+            "demo/js/controls/sm_menu.js",
+            "demo/js/templete3/sm_toolbar.js",
+            "demo/js/controls/sm_dialog.js",
+            "demo/js/controls/sm_measure.js",
+            "demo/js/controls/sm_geolocate.js",
+            "demo/js/controls/sm_drawFeature.js"
         ]
         /**
          * Property: themePath

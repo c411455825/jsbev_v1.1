@@ -232,6 +232,12 @@
                     }
                 }
             }
-        }
+        },
+        null,                                      //父类
+        false,                                     //是否是静态类
+        [                                          //初始化该类之前需要加载的js文件
+            "demo/js/ui/jquery.ui.widget.js",
+            "demo/js/ui/jquery.ui.button.js"
+        ]
     );
 })()
