@@ -53,7 +53,7 @@
              * });
              * (end)
              */
-            "init":function (content, head) {
+            init:function (content, head) {
                 this.content = content;
                 this.head = head;
                 this.create();
@@ -63,17 +63,20 @@
              * 创建该控件的dom对象。
              */
             create:function () {
-                var body, content;
+                var body, content,t = this;
 
                 this.body = body = $("<div title=\"Basic dialog\" class=\"dialog\"></div>")
                     .appendTo($("body"));
                 this.content_body = content = $("<div class=\"jsBev_sample\"></div>");
                 content.appendTo(body);
                 if (this.content)content.append(this.content);
-                body.dialog();
-                body.dialog(
-                    "option", "title",
-                    "<span class=\"icon16_16 " + this.head.icon + " dialog_title_icon\"></span><span class=\"dialog_title_txt\">" + this.head.text + "</span>");
+
+                window.setTimeout(function(){
+                    if(!body.isDialog)body.dialog();
+                    body.dialog(
+                        "option", "title",
+                        "<span class=\"icon16_16 " + t.head.icon + " dialog_title_icon\"></span><span class=\"dialog_title_txt\">" + t.head.text + "</span>");
+                },30);
             },
             /**
              * APIMethod: getContentBody

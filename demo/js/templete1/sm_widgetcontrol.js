@@ -65,7 +65,7 @@
              * var myWidgetControl = new SuperMap.Bev.WidgetControl("#widgetControl");
              * (end)
              */
-            "init":function (body) {
+            init:function (body) {
                 var bd, bdl, bdr, wsc, br;
                 br = $.browser;
                 this.isIe7 = (br.msie && br.version == "7.0") ? true : false;
@@ -91,6 +91,7 @@
              *widget <SuperMap.Bev.Dialog>  dialog对象
              */
             addWidget:function (widget) {
+                widget = widget.body;
                 var wcs = this.widgetsContainer, me = this;
                 this.body_l.css("display", "inline-block");
                 var widget_container = this.createWidgetContainer(wcs);
@@ -142,6 +143,7 @@
                     "notFocuse":true,
                     "addtionbtn":$("<div></div>").append(removeoutbtn).append(minimizebtn)
                 }, option_default))
+                widget.isDialog = true;
                 widget.removeoutbtn = removeoutbtn;
                 widget.minimizebtn = minimizebtn;
                 //var height = widget.dialog("option","height" );

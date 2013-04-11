@@ -4,7 +4,7 @@
                                     "events":{
                                         "click":function () {
                                             if (!myGeolocate) {
-                                                var dialog = new SuperMap.Bev.Dialog(myWidgetControl, null, {
+                                                var dialog = new SuperMap.Bev.Dialog(null, {
                                                     "icon":"geolocate_16_16",
                                                     "text":"定&nbsp;&nbsp;&nbsp;&nbsp;位"
                                                 });
@@ -17,6 +17,7 @@
                                                         myGeolocate = null;
                                                     }
                                                 })
+                                                myWidgetControl.addWidget(dialog);
                                             }
                                         }
                                     }

@@ -4,7 +4,7 @@
                                     "events":{
                                         "click":function () {
                                             if (!myMeasure) {//!myMeasure
-                                                var dialog = new SuperMap.Bev.Dialog(myWidgetControl, null, {
+                                                var dialog = new SuperMap.Bev.Dialog(null, {
                                                     "icon":"measure_16_16",
                                                     "text":"量&nbsp;&nbsp;&nbsp;&nbsp;算"
                                                 });
@@ -17,6 +17,7 @@
                                                         myMeasure = null;
                                                     }
                                                 })
+                                                myWidgetControl.addWidget(dialog);
                                             }
                                         }
                                     }

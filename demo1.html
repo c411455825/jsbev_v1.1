@@ -64,19 +64,24 @@
                                     "events":{
                                         "click":function () {
                                             if (!myMeasure) {//!myMeasure
-                                                var dialog = new SuperMap.Bev.Dialog(myWidgetControl, null, {
+                                                var dialog = new SuperMap.Bev.Dialog(null, {
                                                     "icon":"measure_16_16",
                                                     "text":"量&nbsp;&nbsp;&nbsp;&nbsp;算"
                                                 });
 
                                                 var contentBody = dialog.getContentBody();
-                                                myMeasure = new SuperMap.Bev.Measure(contentBody, map);
+                                                myMeasure = new SuperMap.Bev.Measure({
+                                                    "body":contentBody,
+                                                    "map":map
+                                                });
                                                 dialog.on("dialogclose", function () {
                                                     if (myMeasure) {
                                                         myMeasure.destroy();
                                                         myMeasure = null;
                                                     }
-                                                })
+                                                });
+
+                                                myWidgetControl.addWidget(dialog);
                                             }
                                         }
                                     }
@@ -87,7 +92,7 @@
                                     "events":{
                                         "click":function () {
                                             if (!myGeolocate) {
-                                                var dialog = new SuperMap.Bev.Dialog(myWidgetControl, null, {
+                                                var dialog = new SuperMap.Bev.Dialog(null, {
                                                     "icon":"geolocate_16_16",
                                                     "text":"定&nbsp;&nbsp;&nbsp;&nbsp;位"
                                                 });
@@ -100,6 +105,8 @@
                                                         myGeolocate = null;
                                                     }
                                                 })
+
+                                                myWidgetControl.addWidget(dialog);
                                             }
                                         }
                                     }
@@ -110,7 +117,7 @@
                                     "events":{//点击菜单中的一栏，创建一个绘制功能面板
                                         "click":function () {
                                             if (!myDrawFeature) {
-                                                var dialog = new SuperMap.Bev.Dialog(myWidgetControl, null, {
+                                                var dialog = new SuperMap.Bev.Dialog(null, {
                                                     "icon":"draw_16_16",
                                                     "text":"绘&nbsp;&nbsp;&nbsp;&nbsp;制"
                                                 });
@@ -123,6 +130,8 @@
                                                         myDrawFeature = null;
                                                     }
                                                 })
+
+                                                myWidgetControl.addWidget(dialog);
                                             }
                                         }
                                     }

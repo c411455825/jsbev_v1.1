@@ -17,6 +17,36 @@
              */
             map:null,
             /**
+             * APIProperty: distanceIcon
+             * {String} 距离量算图标的路径
+             */
+            distanceIcon:null,
+            /**
+             * APIProperty: distanceIconOffsetX
+             * {Number} 距离量算图标x偏移量
+             */
+            distanceIconOffsetX:null,
+            /**
+             * APIProperty: distanceIconOffsetY
+             * {Number} 距离量算图标y偏移量
+             */
+            distanceIconOffsetY:null,
+            /**
+             * APIProperty: areaIcon
+             * {String} 面积量算图标路径
+             */
+            areaIcon:null,
+            /**
+             * APIProperty: areaIconOffsetX
+             * {Number} 面积量算图标x偏移量
+             */
+            areaIconOffsetX:null,
+            /**
+             * APIProperty: areaIconOffsetY
+             * {Number} 面积量算图标y偏移量
+             */
+            areaIconOffsetY:null,
+            /**
              * APIProperty: resultDiv
              * {HTMLElement} 结果显示面板
              */
@@ -31,17 +61,23 @@
              * 实例化 Measure 类。
              *
              * Parameters:
+             * option -{Object} 参数对象
              * body - {DOMElement} 页面上装载该控件的容器
              * map - {SuperMap.Map} 地图对象。
              *
              * Examples:
              * (code)
-             * var myMeasure = new SuperMap.Bev.Measure($(DivId),map);
+             * var myMeasure = new SuperMap.Bev.Measure({
+             *     "body":$("<div>"),   //{DOMElement} 页面上装载该控件的容器
+             *     "map":map            //{SuperMap.Map} 地图对象。
+             *     "distanceIcon":"distanceIcon"
+             * });
              * (end)
              */
-            "init":function (body, map) {
-                if(body)this.body = body;
-                this.map = map;
+            init:function (option) {
+                for(var key in option){
+                    this[key] = option[key];
+                }
 
                 this.create();
                 this.createControl();
@@ -54,13 +90,24 @@
                 var d1, d2, d3, me = this;
                 if(this.body){
                     this.resultDiv = d1 = $("<p class='measureResult'></p>").appendTo(this.body);
-                    d2 = $("<button>长度量算</button>").button({
-                        icons:{
-                            primary:"ui-icon-locked"
-                        }
-                    }).click(function () {
+
+                    d2 = $("<button>长度量算</button>").click(function () {
                             me.measureDistance();
-                        }).appendTo(this.body);
+                        }).appendTo(this.body)
+                        .button({
+                            icons:{
+                                primary:"ui-icon-locked"
+                            }
+                        });
+
+                    if(this.distanceIcon){
+                        var btn1 = d2.button("option","buttonElement");
+                        var icon = btn1.children(".ui-icon");
+                        icon.css({
+                            "background":"url("+this.distanceIcon+") "+(this.distanceIconOffsetX||0)+"px "+(this.distanceIconOffsetY||0)+"px"
+                        });
+                    }
+
                     d3 = $("<button>面积量算</button>").button({
                         icons:{
                             primary:"ui-icon-locked"
@@ -68,6 +115,18 @@
                     }).click(function () {
                             me.measureArea();
                         }).appendTo(this.body);
+
+                    if(this.areaIcon){
+                        var btn = d3.button("option","buttonElement");
+                        var icon = btn.children(".ui-icon");
+                        icon.css({
+                            "background":"url("+this.areaIcon+") "+(this.areaIconOffsetX||0)+"px "+(this.areaIconOffsetY||0)+"px"
+                        });
+                    }
+
+                    window.setTimeout(function(){
+                        btn1[0].blur();
+                    },30)
                 }
             },
             /**

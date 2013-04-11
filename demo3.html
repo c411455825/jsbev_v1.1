@@ -1,5 +1,5 @@
 <!DOCTYPE html> 
-<html> 
+<html>
 	<head> 
 	<title>supermap</title> 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -46,7 +46,7 @@
         function initDemo(){
             myToolBar = new SuperMap.Bev.ToolBar($("#toolbar"),map,[
                 {
-                    "icon":"demo/img/mesure_t3.png",
+                    "icon":"demo/img/tool_t3.png",
                     "title":"基本操作",
                     "menu":new SuperMap.Bev.Menu(null,{
                         "tree":[
@@ -62,7 +62,12 @@
                                             });
 
                                             var contentBody = dialog.getContentBody();
-                                            myMeasure = new SuperMap.Bev.Measure(contentBody, map);
+                                            myMeasure = new SuperMap.Bev.Measure({
+                                                "body":contentBody,
+                                                "map":map,
+                                                "distanceIcon":"demo/img/measure_distance_16_16_t3.png",
+                                                "areaIcon":"demo/img/measureArea_16_16_t3.png"
+                                            });
                                             dialog.on("dialogclose", function () {
                                                 if (myMeasure) {
                                                     myMeasure.destroy();
