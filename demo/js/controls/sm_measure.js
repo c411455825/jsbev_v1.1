@@ -104,7 +104,7 @@
                         var btn1 = d2.button("option","buttonElement");
                         var icon = btn1.children(".ui-icon");
                         icon.css({
-                            "background":"url("+this.distanceIcon+") "+(this.distanceIconOffsetX||0)+"px "+(this.distanceIconOffsetY||0)+"px"
+                            "background":"url("+this.distanceIcon+") "+(this.distanceIconOffsetX==null?0:this.distanceIconOffsetX)+"px "+(this.distanceIconOffsetY==null?0:this.distanceIconOffsetY)+"px"
                         });
                     }
 
@@ -120,7 +120,7 @@
                         var btn = d3.button("option","buttonElement");
                         var icon = btn.children(".ui-icon");
                         icon.css({
-                            "background":"url("+this.areaIcon+") "+(this.areaIconOffsetX||0)+"px "+(this.areaIconOffsetY||0)+"px"
+                            "background":"url("+this.areaIcon+") "+(this.areaIconOffsetX==null?0:this.areaIconOffsetX)+"px "+(this.areaIconOffsetY==null?0:this.areaIconOffsetY)+"px"
                         });
                     }
 

@@ -90,7 +90,12 @@
                                             });
 
                                             var contentBody = dialog.getContentBody();
-                                            myGeolocate = new SuperMap.Bev.Geolocate(contentBody, map);
+                                            myGeolocate = new SuperMap.Bev.Geolocate({
+                                                "body":contentBody,
+                                                "map":map,
+                                                "locationIcon":"demo/img/geolocate_16_16_t3.png",
+                                                "clearIcon":"demo/img/clear_16_16_t3.png"
+                                            });
                                             dialog.on("dialogclose", function () {
                                                 if (myGeolocate) {
                                                     myGeolocate.destroy();

@@ -11,11 +11,48 @@
              * {HTMLElement} 父容器
              */
             body:null,
+
             /**
              * APIProperty: map
              * {SuperMap.Map} map对象
              */
             map:null,
+
+            /**
+             * APIProperty: pointIcon
+             * {String} 绘制点按钮图标路径
+             */
+            pointIcon:null,
+
+            /**
+             * APIProperty: pointIconOffsetX
+             * {Number} 绘制点按钮图标X偏移量
+             */
+            pointIconOffsetX:null,
+
+            /**
+             * APIProperty: pointIconOffsetY
+             * {Number} 绘制点按钮图标Y偏移量
+             */
+            pointIconOffsetY:null,
+
+            /**
+             * APIProperty: lineIcon
+             * {String} 绘制线按钮图标路径
+             */
+            lineIcon:null,
+
+            /**
+             * APIProperty: lineIconOffsetX
+             * {Number} 绘制线按钮图标X偏移量
+             */
+            lineIconOffsetX:null,
+
+            /**
+             * APIProperty: lineIconOffsetY
+             * {Number} 绘制线按钮图标Y偏移量
+             */
+            lineIconOffsetY:null,
 
             /**
              * Property: geoMarker_bev
@@ -34,17 +71,21 @@
              * 实例化 DrawFeature 类。
              *
              * Parameters:
-             * body - {DOMElement} 页面上装载该控件的容器
-             * map - {SuperMap.Map} 地图对象。
+             * option - {Object} 参数对象
              *
              * Examples:
              * (code)
-             *  myDrawFeature = new SuperMap.Bev.DrawFeature($(DivId),map);
+             *  myDrawFeature = new SuperMap.Bev.DrawFeature({
+             *      "body":$("<div>"),        //{DOMElement} 页面上装载该控件的容器
+             *      "map":map                 //{SuperMap.Map} 地图对象。
+             *  });
              * (end)
              */
-            init:function (body, map) {
-                if(body)this.body = body;
-                this.setMap(map);
+            init:function (option) {
+                for(var key in option){
+                    this[key] = option[key];
+                }
+                this.setMap(this.map);
                 this.create();
                 //this.createControl();
             },
@@ -66,14 +107,22 @@
              * 创建该控件的dom对象。
              */
             create:function () {
-                var me = this;
-                $("<button id='point'>绘制点</button>").button({
+                var me = this,b1;
+                b1 = $("<button id='point'>绘制点</button>").button({
                     icons:{
                         primary:"ui-icon-locked"
                     }
                 }).click(function (e) {
                         me.drawFeature(e);
                     }).appendTo(this.body);
+
+                if(this.pointIcon){
+                    var btn = b1.button("option","buttonElement");
+                    var icon = btn.children(".ui-icon");
+                    icon.css({
+                        "background":"url("+this.pointIcon+") "+(this.pointIconOffsetX==null?0:this.pointIconOffsetX)+"px "+(this.pointIconOffsetY==null?0:this.pointIconOffsetY)+"px"
+                    });
+                }
 
                 $("<button id='line'>绘制线</button>").button({
                     icons:{

@@ -11,11 +11,48 @@
              * {HTMLElement} 父容器
              */
             body:null,
+
             /**
              * APIProperty: map
              * {SuperMap.Map} map对象
              */
             map:null,
+
+            /**
+             * APIProperty: locationIcon
+             * {String} 定位按钮图标路径
+             */
+            locationIcon:null,
+
+            /**
+             * APIProperty: locationIconOffsetX
+             * {Number} 定位按钮图标x方向偏移量
+             */
+            locationIconOffsetX:null,
+
+            /**
+             * APIProperty: locationIconOffsetY
+             * {Number} 定位按钮图标y方向偏移量
+             */
+            locationIconOffsetY:null,
+
+            /**
+             * APIProperty: clearIcon
+             * {String} 清除按钮图标路径
+             */
+            clearIcon:null,
+
+            /**
+             * APIProperty: clearIconOffsetX
+             * {Number} 清除按钮图标x方向偏移量
+             */
+            clearIconOffsetX:null,
+
+            /**
+             * APIProperty: clearIconOffsetY
+             * {Number} 清除按钮图标y方向偏移量
+             */
+            clearIconOffsetY:null,
 
             /**
              * Property: geoMarker_bev
@@ -34,20 +71,21 @@
              * 实例化 Geolocate 类。
              *
              * Parameters:
-             * body - {DOMElement} 页面上装载该控件的容器
-             * map - {SuperMap.Map} 地图对象。
+             * option - {Object} 参数对象
              *
              * Examples:
              * (code)
-             *  myGeolocate = new SuperMap.Bev.Geolocate($(DivId),map);
+             *  myGeolocate = new SuperMap.Bev.Geolocate({
+             *      "body":$("<div>"),  //{DOMElement} 页面上装载该控件的容器
+             *      "map":map           //{SuperMap.Map} 地图对象。
+             *  });
              * (end)
              */
-            init:function (body, map) {
-                if (!map) {
-                    return;
+            init:function (option) {
+                for(var key in option){
+                    this[key] = option[key];
                 }
-                this.body = body;
-                this.map = map;
+
                 this.map.addLayer(this.geoMarker_bev);
                 this.create();
                 this.createControl();
@@ -59,22 +97,43 @@
              * 创建该控件的dom对象。
              */
             create:function () {
-                var me = this;
+                var me = this,b1,b2;
                 if(this.body){
-                    $("<button>地理定位</button>").button({
+                    b1 = $("<button>地理定位</button>").button({
                         icons:{
                             primary:"ui-icon-locked"
                         }
                     }).click(function () {
                             me.geolocateMe();
                         }).appendTo(this.body);
-                    $("<button>清除标记</button>").button({
+
+                    if(this.locationIcon){
+                        var btn = b1.button("option","buttonElement");
+                        var icon = btn.children(".ui-icon");
+                        icon.css({
+                            "background":"url("+this.locationIcon+") "+(this.locationIconOffsetX==null?0:this.locationIconOffsetX)+"px "+(this.locationIconOffsetY==null?0:this.locationIconOffsetY)+"px"
+                        });
+                    }
+
+                    b2 = $("<button>清除标记</button>").button({
                         icons:{
                             primary:"ui-icon-locked"
                         }
                     }).click(function () {
                             me.clearGeoMarkers();
                         }).appendTo(this.body);
+
+                    if(this.clearIcon){
+                        var btn1 = b2.button("option","buttonElement");
+                        var icon = btn1.children(".ui-icon");
+                        icon.css({
+                            "background":"url("+this.clearIcon+") "+(this.clearIconOffsetX==null?0:this.clearIconOffsetX)+"px "+(this.clearIconOffsetY==null?0:this.clearIconOffsetY)+"px"
+                        });
+                    }
+
+                    window.setTimeout(function(){
+                        btn[0].blur();
+                    },30)
                 }
             },
 

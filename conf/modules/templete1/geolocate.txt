@@ -10,7 +10,10 @@
                                                 });
 
                                                 var contentBody = dialog.getContentBody();
-                                                myGeolocate = new SuperMap.Bev.Geolocate(contentBody, map);
+                                                myGeolocate = new SuperMap.Bev.Geolocate({
+                                                    "body":contentBody,
+                                                    "map":map
+                                                });
                                                 dialog.on("dialogclose", function () {
                                                     if (myGeolocate) {
                                                         myGeolocate.destroy();

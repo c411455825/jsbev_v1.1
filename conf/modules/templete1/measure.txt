@@ -10,7 +10,10 @@
                                                 });
 
                                                 var contentBody = dialog.getContentBody();
-                                                myMeasure = new SuperMap.Bev.Measure(contentBody, map);
+                                                myMeasure = new SuperMap.Bev.Measure({
+                                                    "body":contentBody,
+                                                    "map":map
+                                                });
                                                 dialog.on("dialogclose", function () {
                                                     if (myMeasure) {
                                                         myMeasure.destroy();
