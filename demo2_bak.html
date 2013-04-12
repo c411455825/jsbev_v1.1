@@ -90,7 +90,9 @@
                 "isDisplayTitle":true
             });
 
-            myDrawFeature = new SuperMap.Bev.DrawFeature($("<div>"));
+            myDrawFeature = new SuperMap.Bev.DrawFeature({
+                "body":$("<div>")
+            });
             var drawFeatureBody = myDrawFeature.body;
             window.setTimeout(function(){myDrawFeature.setMap(map);},30);
             var myAccordion = new SuperMap.Bev.Accordion($("#left_menu"),
@@ -124,7 +126,9 @@
 
         function getMesure(){
             if(!myMeasure){
-                myMeasure = new SuperMap.Bev.Measure(null,map);
+                myMeasure = new SuperMap.Bev.Measure({
+                    "map":map
+                });
                 myMeasure.showResult = function(txt){
                     var tooltip = getTooltip();
                     tooltip.show(txt);
@@ -149,15 +153,15 @@
         }
         function getGeolocate(){
             if(!myGeolocate){
-                myGeolocate = new SuperMap.Bev.Geolocate(null, map);
+                myGeolocate = new SuperMap.Bev.Geolocate({
+                    "map":map
+                });
             }
 
             return myGeolocate;
         }
 
     </script>
-
-
     </head>
 <body onload="init()" style="position: absolute;width: 100%;height: 100%;">
 <!--[if IE 7]><div style="position: absolute;width: 100%;height: 100%;overflow: hidden;"><![endif]-->

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2cbdfce2-b8f0-424d-9b22-263a2b425d40" name="Default" comment="" />
+    <list default="true" id="2c74423b-b8eb-485f-bdd3-d19a4ef50a96" name="Default" comment="" />
     <ignored path="jsbev_v1.1.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,10 +22,75 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="sm_drawFeature.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/demo/js/controls/sm_drawFeature.js">
+      <file leaf-file-name="demo3.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/demo3.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="27" selection-start="1239" selection-end="1239" vertical-scroll-proportion="0.26814815">
+            <state line="30" column="49" selection-start="1077" selection-end="1077" vertical-scroll-proportion="0.3480916">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bev_main.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo/js/templete3/bev_main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sm_toolbar.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo/js/templete3/sm_toolbar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="287" column="0" selection-start="10578" selection-end="10578" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sm_util.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo/js/controls/sm_util.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="41" selection-start="507" selection-end="507" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="demo1_bak.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo1_bak.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="94.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="demo2_bak.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo2_bak.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="188" column="34" selection-start="6906" selection-end="6906" vertical-scroll-proportion="-12.535714">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conf/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="199" column="51" selection-start="8067" selection-end="8076" vertical-scroll-proportion="-4.75">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sm_dialog.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo/js/controls/sm_dialog.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="70" column="22" selection-start="2057" selection-end="2057" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -33,28 +98,32 @@
       </file>
     </leaf>
   </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/demo/js/controls/sm_measure.js" />
-        <option value="$PROJECT_DIR$/demo3.html" />
-        <option value="$PROJECT_DIR$/demo/js/controls/sm_geolocate.js" />
-        <option value="$PROJECT_DIR$/conf/modules/templete1/measure.txt" />
-        <option value="$PROJECT_DIR$/conf/modules/templete1/geolocate.txt" />
-        <option value="$PROJECT_DIR$/demo.html" />
-        <option value="$PROJECT_DIR$/conf/modules/templete2/getGeolocate.txt" />
-        <option value="$PROJECT_DIR$/conf/modules/templete2/getMeasure.txt" />
         <option value="$PROJECT_DIR$/demo/js/controls/sm_drawFeature.js" />
+        <option value="$PROJECT_DIR$/demo1.html" />
+        <option value="$PROJECT_DIR$/demo2.html" />
+        <option value="$PROJECT_DIR$/conf/modules/templete1/drawFeature.txt" />
+        <option value="$PROJECT_DIR$/conf/js/bev_common.js" />
+        <option value="$PROJECT_DIR$/demo/js/controls/sm_dialog.js" />
+        <option value="$PROJECT_DIR$/demo/js/templete3/sm_toolbar.js" />
+        <option value="$PROJECT_DIR$/demo3.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1616" />
+    <option name="width" value="1456" />
     <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -83,6 +152,16 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -151,37 +230,79 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="templete3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsbev_v1.1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsbev_v1.1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="demo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="controls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsbev_v1.1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsbev_v1.1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="conf" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <created>1365687400653</created>
-      <updated>1365687400653</updated>
+      <created>1365732616467</created>
+      <updated>1365732616467</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24984147" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17173144" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -252,21 +373,21 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/conf/modules/templete1/measure.txt">
+    <entry file="file://$PROJECT_DIR$/conf/modules/templete2/accordion.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="51" selection-start="1023" selection-end="1023" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/modules/templete1/geolocate.txt">
+    <entry file="file://$PROJECT_DIR$/conf/modules/templete2/geoLocateIcon.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="61" selection-start="969" selection-end="969" vertical-scroll-proportion="0.3866279">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/modules/templete1/drawFeature.txt">
+    <entry file="file://$PROJECT_DIR$/conf/modules/templete2/getGeolocate.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
@@ -275,49 +396,93 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/conf/modules/templete2/getMeasure.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="9" selection-start="535" selection-end="535" vertical-scroll-proportion="0.46947673">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/modules/templete2/getGeolocate.txt">
+    <entry file="file://$PROJECT_DIR$/conf/modules/templete2/getTooltip.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="186" selection-end="186" vertical-scroll-proportion="0.16569768">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/js/controls/sm_geolocate.js">
+    <entry file="file://$PROJECT_DIR$/conf/modules/templete2/measureIcon.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="144" column="51" selection-start="4482" selection-end="4482" vertical-scroll-proportion="0.82222223">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo.html">
+    <entry file="file://$PROJECT_DIR$/index2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="51" selection-start="3371" selection-end="3371" vertical-scroll-proportion="0.57575756">
+        <state line="94" column="54" selection-start="3544" selection-end="3557" vertical-scroll-proportion="-10.857142">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/js/bev_common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="586" column="50" selection-start="21986" selection-end="21986" vertical-scroll-proportion="0.57009345">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/js/controls/sm_dialog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="22" selection-start="2057" selection-end="2057" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo2_bak.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="188" column="34" selection-start="6906" selection-end="6906" vertical-scroll-proportion="-12.535714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo1_bak.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="94.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/js/templete3/bev_main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/js/controls/sm_util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="41" selection-start="507" selection-end="507" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/js/templete3/sm_toolbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="287" column="0" selection-start="10578" selection-end="10578" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="199" column="51" selection-start="8067" selection-end="8076" vertical-scroll-proportion="-4.75">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/demo3.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="49" selection-start="6431" selection-end="6431" vertical-scroll-proportion="-25.785715">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/js/controls/sm_measure.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="21" selection-start="3801" selection-end="4218" vertical-scroll-proportion="0.78814816">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/js/controls/sm_drawFeature.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="27" selection-start="1239" selection-end="1239" vertical-scroll-proportion="0.26814815">
+        <state line="30" column="49" selection-start="1077" selection-end="1077" vertical-scroll-proportion="0.3480916">
           <folding />
         </state>
       </provider>

@@ -66,6 +66,9 @@
                 var body, content,t = this;
 
                 this.body = body = $("<div title=\"Basic dialog\" class=\"dialog\"></div>")
+                    .css({
+                        "visibility":"hidden"
+                    })
                     .appendTo($("body"));
                 this.content_body = content = $("<div class=\"jsBev_sample\"></div>");
                 content.appendTo(body);
@@ -75,7 +78,10 @@
                     if(!body.isDialog)body.dialog();
                     body.dialog(
                         "option", "title",
-                        "<span class=\"icon16_16 " + t.head.icon + " dialog_title_icon\"></span><span class=\"dialog_title_txt\">" + t.head.text + "</span>");
+                        "<span class=\"icon16_16 " + t.head.icon + " dialog_title_icon\"></span><span class=\"dialog_title_txt\">" + t.head.text + "</span>")
+                        .css({
+                            "visibility":"visible"
+                        });
                 },30);
             },
             /**

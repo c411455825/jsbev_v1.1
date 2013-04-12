@@ -10,7 +10,10 @@
                                                 });
 
                                                 var contentBody = dialog.getContentBody();
-                                                myDrawFeature = new SuperMap.Bev.DrawFeature(contentBody, map);
+                                                myDrawFeature = new SuperMap.Bev.DrawFeature({
+                                                    "body":contentBody,
+                                                    "map":map
+                                                });
                                                 dialog.on("dialogclose", function () {
                                                     if (myDrawFeature) {
                                                         myDrawFeature.destroy();

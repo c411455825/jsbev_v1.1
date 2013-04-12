@@ -49,6 +49,12 @@
                 d1.css({
                     "margin-left":"60px"
                 });
+                var b = $.browser;
+                if(b.msie&&b.version=="7.0"){
+                    d1.css({
+                        "left":"60px"
+                    });
+                }
                 d1 = this.zoomOutInBtn(body,false);
                 d1 = $("<span>")
                     .css({
@@ -248,12 +254,16 @@
                     .mouseover(function(menu){
                         return function(){
                             //$(this).addClass("ui-state-active");
-                            $(this).css({
-                                "margin-left":"0px",
-                                "margin-right":"0px",
-                                "border-width":"1px",
-                                "margin-top":"3px"
-                            });
+
+                            var b = $.browser;
+                            if(!b.msie||b.version!="7.0"){
+                                $(this).css({
+                                    "margin-left":"0px",
+                                    "margin-right":"0px",
+                                    "border-width":"1px",
+                                    "margin-top":"3px"
+                                });
+                            }
 
                             if(menu){
                                 log.print("mouseover btn");
@@ -266,12 +276,15 @@
                     }(menu))
                     .mouseout(function(){
                         //$(this).removeClass("ui-state-active");
-                        $(this).css({
-                            "margin-left":"1px",
-                            "margin-right":"1px",
-                            "border-width":"0px",
-                            "margin-top":"4px"
-                        });
+                        var b = $.browser;
+                        if(!b.msie||b.version!="7.0"){
+                            $(this).css({
+                                "margin-left":"1px",
+                                "margin-right":"1px",
+                                "border-width":"0px",
+                                "margin-top":"4px"
+                            });
+                        }
 
                         if(menu){
                             log.print("mouseout from btn");
@@ -321,7 +334,8 @@
                             "position":"absolute",
                             "top":"38px",
                             "display":"none",
-                            "width":"80px"
+                            "width":"80px",
+                            "left":"0px"
                         })
                         .append(menu.menuBody)
                         .appendTo(btn);

@@ -580,7 +580,7 @@ function generate_xml_2(xml) {
         else if (controlNames[i]=="drawFeature"){
             var drawFeatureCode = "\n"+getBanks(20)+"{\n"+getBanks(24)+"\"title\":\"绘制\",\n"+getBanks(24)+"\"body\":drawFeatureBody\n"+getBanks(20)+"},";
             objWidgets["accordion"] = objWidgets["accordion"].replace(/{_firstAccordingItem_}/,drawFeatureCode);
-            objWidgets["accordion"] = "\n"+getBanks(12)+"myDrawFeature = new SuperMap.Bev.DrawFeature($(\"<div>\"));\n"+getBanks(12)+"var drawFeatureBody = myDrawFeature.body;\n"+getBanks(12)+"window.setTimeout(function(){myDrawFeature.setMap(map);},30);\n"+objWidgets["accordion"];
+            objWidgets["accordion"] = "\n"+getBanks(12)+"myDrawFeature = new SuperMap.Bev.DrawFeature({\"body\":$(\"<div>\")});\n"+getBanks(12)+"var drawFeatureBody = myDrawFeature.body;\n"+getBanks(12)+"window.setTimeout(function(){myDrawFeature.setMap(map);},30);\n"+objWidgets["accordion"];
         }
     }
     objWidgets["accordion"] = objWidgets["accordion"].replace(/{_firstAccordingItem_}/,"");

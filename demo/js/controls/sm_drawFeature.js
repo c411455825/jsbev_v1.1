@@ -55,6 +55,42 @@
             lineIconOffsetY:null,
 
             /**
+             * APIProperty: areaIcon
+             * {String} 绘制面按钮图标路径
+             */
+             areaIcon:null,
+
+            /**
+             * APIProperty: areaIconOffsetX
+             * {Number} 绘制面按钮图标X偏移量
+             */
+            areaIconOffsetX:null,
+
+            /**
+             * APIProperty: areaIconOffsetY
+             * {Number} 绘制面按钮图标Y偏移量
+             */
+            areaIconOffsetY:null,
+
+            /**
+             * APIProperty: clearIcon
+             * {String} 清除按钮图标路径
+             */
+            clearIcon:null,
+
+            /**
+             * APIProperty: clearIconOffsetX
+             * {Number} 清除按钮图标X偏移量
+             */
+            clearIconOffsetX:null,
+
+            /**
+             * APIProperty: clearIconOffsetY
+             * {Number} 清除按钮图标Y偏移量
+             */
+            clearIconOffsetY:null,
+
+            /**
              * Property: geoMarker_bev
              * {SuperMap.Layer.Vector} 矢量要素图层
              */
@@ -107,7 +143,7 @@
              * 创建该控件的dom对象。
              */
             create:function () {
-                var me = this,b1;
+                var me = this,b1,b2,b3,b4;
                 b1 = $("<button id='point'>绘制点</button>").button({
                     icons:{
                         primary:"ui-icon-locked"
@@ -117,14 +153,14 @@
                     }).appendTo(this.body);
 
                 if(this.pointIcon){
-                    var btn = b1.button("option","buttonElement");
-                    var icon = btn.children(".ui-icon");
+                    var btn1 = b1.button("option","buttonElement");
+                    var icon = btn1.children(".ui-icon");
                     icon.css({
                         "background":"url("+this.pointIcon+") "+(this.pointIconOffsetX==null?0:this.pointIconOffsetX)+"px "+(this.pointIconOffsetY==null?0:this.pointIconOffsetY)+"px"
                     });
                 }
 
-                $("<button id='line'>绘制线</button>").button({
+                b2 = $("<button id='line'>绘制线</button>").button({
                     icons:{
                         primary:"ui-icon-locked"
                     }
@@ -132,7 +168,15 @@
                         me.drawFeature(e);
                     }).appendTo(this.body);
 
-                $("<button id='polygon'>绘制面</button>").button({
+                if(this.lineIcon){
+                    var btn = b2.button("option","buttonElement");
+                    var icon = btn.children(".ui-icon");
+                    icon.css({
+                        "background":"url("+this.lineIcon+") "+(this.lineIconOffsetX==null?0:this.lineIconOffsetX)+"px "+(this.lineIconOffsetY==null?0:this.lineIconOffsetY)+"px"
+                    });
+                }
+
+                b3 = $("<button id='polygon'>绘制面</button>").button({
                     icons:{
                         primary:"ui-icon-locked"
                     }
@@ -140,7 +184,15 @@
                         me.drawFeature(e);
                     }).appendTo(this.body);
 
-                $("<button id='clearFeatures'>清除绘制</button>").button({
+                if(this.areaIcon){
+                    var btn = b3.button("option","buttonElement");
+                    var icon = btn.children(".ui-icon");
+                    icon.css({
+                        "background":"url("+this.areaIcon+") "+(this.areaIconOffsetX==null?0:this.areaIconOffsetX)+"px "+(this.areaIconOffsetY==null?0:this.areaIconOffsetY)+"px"
+                    });
+                }
+
+                b4 = $("<button id='clearFeatures'>清除绘制</button>").button({
                     icons:{
                         primary:"ui-icon-locked"
                     }
@@ -148,6 +200,18 @@
                         me.clearFeatures();
                     }).appendTo(this.body);
 
+                if(this.clearIcon){
+                    var btn = b4.button("option","buttonElement");
+                    var icon = btn.children(".ui-icon");
+                    icon.css({
+                        "background":"url("+this.clearIcon+") "+(this.clearIconOffsetX==null?0:this.clearIconOffsetX)+"px "+(this.clearIconOffsetY==null?0:this.clearIconOffsetY)+"px"
+                    });
+                }
+
+
+                window.setTimeout(function(){
+                    btn1[0].blur();
+                },30)
             },
 
             /**

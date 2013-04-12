@@ -118,7 +118,14 @@
                                             });
 
                                             var contentBody = dialog.getContentBody();
-                                            myDrawFeature = new SuperMap.Bev.DrawFeature(contentBody, map);
+                                            myDrawFeature = new SuperMap.Bev.DrawFeature({
+                                                "body":contentBody,
+                                                "map":map,
+                                                "pointIcon":"demo/img/drawpoint_16_16_t3.png",
+                                                "lineIcon":"demo/img/drawline_16_16_t3.png",
+                                                "areaIcon":"demo/img/drawarea_16_16_t3.png",
+                                                "clearIcon":"demo/img/clear_16_16_t3.png"
+                                            });
                                             dialog.on("dialogclose", function () {
                                                 if (myDrawFeature) {
                                                     myDrawFeature.destroy();
